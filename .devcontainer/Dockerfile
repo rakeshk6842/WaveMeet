@@ -1,6 +1,6 @@
 FROM registry.redhat.io/ubi10/ubi:10.1
 
-LABEL maintainer="dev@example.com" \
+LABEL maintainer="rakeshk.6842@gmail.com" \
       description="RHEL 10 UBI 10.1 Development Container with JDK 21, Node.js 22, Python, and Database Tools"
 
 # Update system packages and install JDK 21
