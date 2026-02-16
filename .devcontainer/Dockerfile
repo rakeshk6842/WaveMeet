@@ -1,7 +1,7 @@
 FROM registry.access.redhat.com/ubi9/ubi:latest
 
 LABEL maintainer="dev@example.com" \
-      description="RHEL 10 Development Container with Node.js, Python, and Database Tools"
+      description="RHEL 9 Development Container with Node.js, Python, and Database Tools"
 
 # Update system packages (skip nodejs and npm initially)
 RUN yum update -y && \

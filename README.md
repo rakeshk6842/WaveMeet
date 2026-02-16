@@ -1,6 +1,6 @@
-# WaveMeet - RHEL 10 Development Container
+# WaveMeet - RHEL 9 Development Container
 
-A full-stack real-time messaging application built with Node.js, React, PostgreSQL, and Redis, running in a RHEL 10 development container.
+A full-stack real-time messaging application built with Node.js, React, PostgreSQL, and Redis, running in a RHEL 9 development container.
 
 ## Features
 
@@ -19,7 +19,7 @@ A full-stack real-time messaging application built with Node.js, React, PostgreS
 .
 ├── .devcontainer/
 │   ├── devcontainer.json      # Dev container configuration
-│   ├── Dockerfile             # RHEL 10 based development image
+│   ├── Dockerfile             # RHEL 9 based development image
 │   └── post-create.sh         # Post-creation setup script
 ├── backend/
 │   ├── src/
@@ -83,7 +83,7 @@ docker-compose logs -f dev
 
 ## Services
 
-### Development Container (RHEL 10)
+### Development Container (RHEL 9)
 - Node.js, npm, yarn
 - Python 3 with Flask and tools
 - Git, curl, wget, vim, nano
