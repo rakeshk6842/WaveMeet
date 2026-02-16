@@ -24,6 +24,12 @@ const io = new SocketIOServer(server, {
   }
 });
 
+// Validate required environment variables
+if (!process.env.JWT_SECRET) {
+  console.error('ERROR: JWT_SECRET environment variable is not set');
+  process.exit(1);
+}
+
 // Middleware
 const allowedOrigins = (process.env.ALLOWED_ORIGINS || process.env.FRONTEND_URL || 'http://localhost:3000').split(',');
 app.use(cors({
