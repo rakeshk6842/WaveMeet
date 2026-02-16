@@ -1,8 +1,5 @@
 import { useState } from 'react'
-impo    <div className="min-h-screen bg-gradient-to-br from-wavemeet-green to-green-600 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-2xl p-8 w-full max-w-md">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-wavemeet-green mb-2">WaveMeet</h1> useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useAuthStore } from '../store'
 import { authAPI } from '../api'
 import toast from 'react-hot-toast'
