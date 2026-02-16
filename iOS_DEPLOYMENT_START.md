@@ -26,10 +26,10 @@ Perfect for initial testing and feature validation.
 
 ```bash
 # Step 1: Make script executable
-chmod +x /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace/deploy-ios.sh
+chmod +x WaveMeet/deploy-ios.sh
 
 # Step 2: Navigate to project
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 
 # Step 3: Run setup (one time)
 ./deploy-ios.sh setup
@@ -60,7 +60,7 @@ Test on actual iPhone/iPad for realistic behavior.
 # Step 2: When prompted on device, tap "Trust"
 
 # Step 3: Run deployment
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 ./deploy-ios.sh device
 
 # When prompted:
@@ -75,7 +75,7 @@ cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
 For broader testing with beta testers.
 
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 
 # Build for TestFlight
 ./deploy-ios.sh testflight
@@ -130,8 +130,8 @@ Before you start, verify you have:
 - [ ] **Apple Developer Account (paid)** needed for device testing/TestFlight
 
 ### Project Files
-- [ ] Project files at: `/Users/rakeshkoripella/Desktop/projects/docker-ai-workspace/`
-- [ ] iOS app at: `/Users/rakeshkoripella/Desktop/projects/docker-ai-workspace/ios/`
+- [ ] Project files at: `WaveMeet/`
+- [ ] iOS app at: `WaveMeet/ios/`
 - [ ] Backend server running (for real-time features)
 
 ---
@@ -334,7 +334,7 @@ For detailed information, refer to:
 
 3. **Run Deployment**
    ```bash
-   cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+   cd WaveMeet
    ./deploy-ios.sh setup
    ./deploy-ios.sh simulator
    ```
@@ -402,7 +402,7 @@ You'll know deployment was successful when:
 
 **Ready to deploy? Start with:**
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 ./deploy-ios.sh setup && ./deploy-ios.sh simulator
 ```
 

@@ -70,7 +70,7 @@ This prepares the iOS environment:
 
 ```bash
 # Navigate to project
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 
 # Make script executable (first time only)
 chmod +x deploy-ios.sh
@@ -458,7 +458,7 @@ npx react-native run-ios   # Terminal 2
 
 ### Quick Start Command:
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 ./deploy-ios.sh setup && ./deploy-ios.sh simulator
 ```
 
@@ -623,7 +623,7 @@ That's it! Everything else is automated.
 
 **Execute this command now:**
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 chmod +x deploy-ios.sh
 ./deploy-ios.sh setup
 ```
