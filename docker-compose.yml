@@ -12,7 +12,7 @@ services:
       - /workspace/node_modules
     ports:
       - "3000:3000"   # Frontend
-      - "5000:5000"   # Backend API
+      - "5001:5000"   # Backend API (mapped to 5001 to avoid conflicts)
       - "8000:8000"   # WebSocket/Chat Server
       - "9000:9000"   # Admin/Monitoring
     environment:
@@ -27,7 +27,7 @@ services:
       - wavemeet-network
     stdin_open: true
     tty: true
-    command: /bin/bash
+    command: sleep infinity
 
   # PostgreSQL Database
   postgres:
