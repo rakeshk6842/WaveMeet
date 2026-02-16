@@ -1,11 +1,14 @@
-FROM registry.access.redhat.com/ubi9/ubi:latest
+FROM registry.redhat.io/ubi10/ubi:10.1
 
 LABEL maintainer="dev@example.com" \
-      description="RHEL 10 Development Container with Node.js, Python, and Database Tools"
+      description="RHEL 10 UBI 10.1 Development Container with JDK 21, Node.js 22, Python, and Database Tools"
 
-# Update system packages (skip nodejs and npm initially)
+# Update system packages and install JDK 21
 RUN yum update -y && \
     yum install -y --allowerasing \
+    java-21-openjdk \
+    java-21-openjdk-devel \
+    java-21-openjdk-headless \
     git \
     curl \
     wget \
@@ -35,8 +38,8 @@ RUN curl -fsSL https://download.redis.io/redis-stable.tar.gz | tar -xz && \
     mkdir -p /var/lib/redis && \
     useradd -r -s /bin/false redis || true
 
-# Install newer Node.js LTS using NodeSource repo (handles npm replacement)
-RUN curl -sL https://rpm.nodesource.com/setup_20.x | bash - && \
+# Install latest Node.js (v22) using NodeSource repo
+RUN curl -sL https://rpm.nodesource.com/setup_22.x | bash - && \
     yum remove -y nodejs npm 2>/dev/null || true && \
     yum install -y nodejs && \
     npm install -g yarn pnpm
