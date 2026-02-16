@@ -10,7 +10,7 @@ Your **WaveMeet messaging application** with RHEL 9 dev container has been fully
 
 ```bash
 # 1. Go to your project
-cd /path/to/WaveMeet
+cd WaveMeet
 
 # 2. Start everything
 make setup
@@ -162,7 +162,7 @@ Ready to Use:         ✅ YES
 ## 🎯 Next Action
 
 ```bash
-cd /path/to/WaveMeet
+cd WaveMeet
 make setup
 open http://localhost:3000
 ```

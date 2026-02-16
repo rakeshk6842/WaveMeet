@@ -3,7 +3,7 @@
 **Date**: February 15, 2026  
 **Status**: ✅ **VERIFIED & READY TO RUN**  
 **Version**: 1.0.0  
-**Location**: `/path/to/WaveMeet`
+**Location**: `<your-clone-directory>/WaveMeet`
 
 ---
 
@@ -189,7 +189,7 @@ Health Checks: ✅ Configured for postgres & redis
 
 ```bash
 # Navigate to project
-cd /path/to/WaveMeet
+cd WaveMeet
 
 # One-command setup
 make setup
@@ -299,7 +299,7 @@ Your WaveMeet project is **complete, verified, and ready to run**!
 **What's Next?**
 
 ```bash
-cd /path/to/WaveMeet
+cd WaveMeet
 make setup    # Start the application
 ```
 

@@ -9,7 +9,11 @@
 ### Step 1: Clone and Setup
 
 ```bash
-cd /path/to/WaveMeet
+# Clone the repository
+git clone https://github.com/rakeshk6842/WaveMeet.git
+cd WaveMeet
+
+# Copy environment variables
 cp .env.example .env
 ```
 

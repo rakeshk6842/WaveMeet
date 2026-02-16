@@ -2,7 +2,7 @@
 
 **Status**: ✅ **FULLY VERIFIED & READY TO RUN**  
 **Date**: February 15, 2026  
-**Location**: `/path/to/WaveMeet`
+**Location**: `<your-clone-directory>/WaveMeet`
 
 ---
 
@@ -98,7 +98,7 @@ Your WaveMeet messaging application has been **successfully created and verified
 
 ### Step 1: Navigate to Project
 ```bash
-cd /path/to/WaveMeet
+cd WaveMeet
 ```
 
 ### Step 2: Start All Services (One Command)
@@ -370,7 +370,7 @@ http://localhost:3000
 
 ### Immediate (5 minutes)
 ```bash
-cd /path/to/WaveMeet
+cd WaveMeet
 make setup
 # Open http://localhost:3000
 ```
@@ -451,7 +451,7 @@ Your complete WaveMeet application is ready to run.
 
 **Start now:**
 ```bash
-cd /path/to/WaveMeet
+cd WaveMeet
 make setup
 ```
 

@@ -6,7 +6,7 @@
 
 ```bash
 # Navigate to project
-cd /path/to/WaveMeet
+cd WaveMeet
 
 # Start all services
 make setup

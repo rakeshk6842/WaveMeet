@@ -6,7 +6,7 @@
 PROJECT STATUS: ✅ COMPLETE & PRODUCTION-READY
 VERSION: 1.0.0
 DATE: February 2026
-LOCATION: /path/to/WaveMeet
+LOCATION: WaveMeet
 
 ═══════════════════════════════════════════════════════════════════════════════
 DELIVERABLES SUMMARY
@@ -262,7 +262,7 @@ SETUP INSTRUCTIONS
 QUICK START (5 MINUTES):
 
 1. Navigate to project:
-   $ cd /path/to/WaveMeet
+   $ cd WaveMeet
 
 2. Start all services:
    $ make setup
@@ -569,7 +569,7 @@ GETTING STARTED NOW
 
 COPY & PASTE THIS:
 
-cd /path/to/WaveMeet
+cd WaveMeet
 make setup
 
 Then open: http://localhost:3000
@@ -598,7 +598,7 @@ Project Type:        Full-Stack Real-Time Messaging Application
 Version:             1.0.0
 Status:              ✅ Complete & Production-Ready
 Created:             February 2026
-Location:            /path/to/WaveMeet
+Location:            WaveMeet
 License:             MIT
 
 ═══════════════════════════════════════════════════════════════════════════════

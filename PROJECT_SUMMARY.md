@@ -313,7 +313,7 @@ Includes configurations for:
 
 1. **Start Services**:
    ```bash
-   cd /path/to/WaveMeet
+   cd WaveMeet
    make setup
    ```
 

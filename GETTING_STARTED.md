@@ -8,7 +8,7 @@ Your WaveMeet application is now fully configured and ready to use. This guide w
 
 ### 1. Start All Services
 ```bash
-cd /path/to/WaveMeet
+cd WaveMeet  # Navigate to your cloned repository
 make setup
 ```
 

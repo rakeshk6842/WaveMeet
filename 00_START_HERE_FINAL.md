@@ -42,8 +42,9 @@
 ## 🚀 QUICK START (60 Seconds)
 
 ```bash
-# 1. Navigate
-cd /path/to/WaveMeet
+# 1. Clone (if not already done)
+git clone https://github.com/rakeshk6842/WaveMeet.git
+cd WaveMeet
 
 # 2. Start
 make setup
@@ -615,7 +616,7 @@ Your complete WaveMeet messaging application is fully created, verified, and rea
 
 **Start building:**
 ```bash
-cd /path/to/WaveMeet
+cd WaveMeet
 make setup
 ```
 

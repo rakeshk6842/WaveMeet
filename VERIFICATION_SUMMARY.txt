@@ -54,7 +54,7 @@
 ──────────────────────────────────────────────────────────────────────────────────
 
 Step 1: Navigate to project
-    cd /path/to/WaveMeet
+    cd WaveMeet
 
 Step 2: Start everything
     make setup
@@ -280,7 +280,7 @@ Everything is in place:
 
 START NOW:
 
-    cd /path/to/WaveMeet
+    cd WaveMeet
     make setup
     open http://localhost:3000
 

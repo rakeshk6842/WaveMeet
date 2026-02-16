@@ -48,7 +48,7 @@ Use this checklist to verify your WaveMeet setup is complete and working correct
 
 ### Step 1: Prepare Environment
 ```bash
-cd /path/to/WaveMeet
+cd WaveMeet
 cp .env.example .env
 ```
 - [ ] `.env` file created

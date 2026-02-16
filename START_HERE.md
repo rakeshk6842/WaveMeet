@@ -26,7 +26,7 @@ This is a **complete WaveMeet messaging application** that runs in a **RHEL 9 de
 
 ### 1️⃣ Start Services
 ```bash
-cd /path/to/WaveMeet
+cd WaveMeet
 make setup
 ```
 
@@ -408,7 +408,7 @@ After setup:
 ## 🚀 Ready? Let's Go!
 
 ```bash
-cd /path/to/WaveMeet
+cd WaveMeet
 make setup
 # Then visit http://localhost:3000
 ```

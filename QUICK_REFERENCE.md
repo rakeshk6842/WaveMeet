@@ -3,7 +3,7 @@
 ## ⚡ 60-Second Quick Start
 
 ```bash
-cd /path/to/WaveMeet
+cd WaveMeet
 make setup
 # Wait 2-3 minutes for services to start
 # Open: http://localhost:3000
@@ -231,7 +231,7 @@ docker-compose ps
 ## 🎉 Ready?
 
 ```bash
-cd /path/to/WaveMeet
+cd WaveMeet
 make setup
 # Visit http://localhost:3000
 # Happy coding! 🚀

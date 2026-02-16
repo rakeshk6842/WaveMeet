@@ -9,7 +9,7 @@ Your WaveMeet with RHEL 9 dev container has been fully created and tested.
 ## 🚀 START IN 60 SECONDS
 
 ```bash
-cd /path/to/WaveMeet
+cd WaveMeet
 make setup
 open http://localhost:3000
 ```
@@ -199,7 +199,7 @@ Everything is ready to use:
 ## 🚀 Next Step
 
 ```bash
-cd /path/to/WaveMeet
+cd WaveMeet
 make setup
 open http://localhost:3000
 ```
