@@ -1,0 +1,100 @@
+name: Frontend Tests & Build
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/frontend-tests.yml'
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'frontend/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: 'frontend/package-lock.json'
+      
+      - name: Install dependencies
+        run: cd frontend && npm install
+      
+      - name: Run ESLint
+        run: cd frontend && npm run lint
+        continue-on-error: true
+      
+      - name: Run tests (if configured)
+        run: cd frontend && npm test -- --passWithNoTests
+        continue-on-error: true
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: 'frontend/package-lock.json'
+      
+      - name: Install dependencies
+        run: cd frontend && npm install
+      
+      - name: Build application
+        run: cd frontend && npm run build
+      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: frontend-build
+          path: frontend/dist/
+          retention-days: 5
+
+  security-scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: cd frontend && npm install
+      
+      - name: Run npm audit
+        run: cd frontend && npm audit --audit-level=moderate
+        continue-on-error: true
+      
+      - name: Run OWASP dependency check
+        uses: jeremylong/DependencyCheck_Action@main
+        with:
+          project: 'WaveMeet Frontend'
+          path: 'frontend/'
+          format: 'JSON'
+          args: >
+            --enableExperimental
+        continue-on-error: true
+      
+      - name: Upload OWASP results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: owasp-frontend-report
+          path: reports/
+        continue-on-error: true

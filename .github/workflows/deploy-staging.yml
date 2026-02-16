@@ -1,0 +1,112 @@
+name: Deploy to Staging
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [main]
+    types: [closed]
+
+jobs:
+  deploy-backend:
+    if: github.event.pull_request.merged == true || github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: cd backend && npm install --production
+      
+      - name: Build backend
+        run: cd backend && npm run build
+        continue-on-error: true
+      
+      - name: Deploy to staging
+        run: |
+          echo "Deploying backend to staging..."
+          # Add your deployment commands here
+          # Example: ssh deploy@staging.wavemeet.com 'cd /app && git pull && npm install && pm2 restart wavemeet-backend'
+        env:
+          DEPLOY_KEY: ${{ secrets.STAGING_DEPLOY_KEY }}
+        continue-on-error: true
+
+  deploy-frontend:
+    if: github.event.pull_request.merged == true || github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: cd frontend && npm install
+      
+      - name: Build frontend
+        run: cd frontend && npm run build
+      
+      - name: Deploy to staging
+        run: |
+          echo "Deploying frontend to staging..."
+          # Add your deployment commands here
+          # Example: aws s3 sync frontend/dist/ s3://wavemeet-staging/ --delete
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        continue-on-error: true
+
+  test-staging:
+    needs: [deploy-backend, deploy-frontend]
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Run smoke tests
+        run: |
+          echo "Running smoke tests on staging environment..."
+          # Add your smoke testing commands here
+        continue-on-error: true
+      
+      - name: Run integration tests
+        run: |
+          echo "Running integration tests on staging environment..."
+          # Add your integration testing commands here
+        continue-on-error: true
+      
+      - name: Notify Slack
+        uses: slackapi/slack-github-action@v1.24.0
+        if: always()
+        with:
+          webhook-url: ${{ secrets.SLACK_WEBHOOK }}
+          payload: |
+            {
+              "text": "Staging deployment ${{ job.status }}",
+              "attachments": [
+                {
+                  "color": "${{ job.status == 'success' && 'good' || 'danger' }}",
+                  "fields": [
+                    {
+                      "title": "Repository",
+                      "value": "${{ github.repository }}",
+                      "short": true
+                    },
+                    {
+                      "title": "Branch",
+                      "value": "${{ github.ref_name }}",
+                      "short": true
+                    }
+                  ]
+                }
+              ]
+            }
+        continue-on-error: true

@@ -1,0 +1,122 @@
+name: Android App Build & Test
+
+on:
+  push:
+    branches: [android-app, main]
+    paths:
+      - 'android/**'
+      - '.github/workflows/android-build.yml'
+  pull_request:
+    branches: [android-app, main]
+    paths:
+      - 'android/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: cd android && npm install
+      
+      - name: Run ESLint
+        run: cd android && npm run lint
+        continue-on-error: true
+      
+      - name: Check TypeScript/JSX
+        run: cd android && npx tsc --noEmit
+        continue-on-error: true
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+      
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+      
+      - name: Install dependencies
+        run: cd android && npm install
+      
+      - name: Build React Native app
+        run: cd android && npm run build
+        continue-on-error: true
+      
+      - name: Run security scan
+        run: |
+          cd android
+          npm audit --audit-level=moderate
+        continue-on-error: true
+
+  security-scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: cd android && npm install
+      
+      - name: Run npm audit
+        run: cd android && npm audit
+        continue-on-error: true
+      
+      - name: Run OWASP dependency check
+        uses: jeremylong/DependencyCheck_Action@main
+        with:
+          project: 'WaveMeet Android'
+          path: 'android/'
+          format: 'JSON'
+          args: >
+            --enableExperimental
+        continue-on-error: true
+      
+      - name: Upload security report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: owasp-android-report
+          path: reports/
+        continue-on-error: true
+
+  code-quality:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONARCLOUD_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=rakeshkoripella_WaveMeet-Android
+            -Dsonar.organization=rakeshkoripella
+        continue-on-error: true

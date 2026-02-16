@@ -1,0 +1,109 @@
+name: iOS App Build & Test
+
+on:
+  push:
+    branches: [ios-app, main]
+    paths:
+      - 'ios/**'
+      - '.github/workflows/ios-build.yml'
+  pull_request:
+    branches: [ios-app, main]
+    paths:
+      - 'ios/**'
+
+jobs:
+  test:
+    runs-on: macos-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: cd ios && npm install
+      
+      - name: Run ESLint
+        run: cd ios && npm run lint
+        continue-on-error: true
+      
+      - name: Check TypeScript/JSX
+        run: cd ios && npx tsc --noEmit
+        continue-on-error: true
+
+  build:
+    needs: test
+    runs-on: macos-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+      
+      - name: Install Xcode
+        run: sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+      
+      - name: Install dependencies
+        run: cd ios && npm install
+      
+      - name: Install CocoaPods
+        run: sudo gem install cocoapods
+      
+      - name: Install iOS pods
+        run: |
+          cd ios/ios
+          pod install
+        continue-on-error: true
+      
+      - name: Build React Native app
+        run: cd ios && npm run build
+        continue-on-error: true
+      
+      - name: Run security scan
+        run: |
+          cd ios
+          npm audit --audit-level=moderate
+        continue-on-error: true
+
+  security-scan:
+    runs-on: macos-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: cd ios && npm install
+      
+      - name: Run OWASP dependency check
+        uses: jeremylong/DependencyCheck_Action@main
+        with:
+          project: 'WaveMeet iOS'
+          path: 'ios/'
+          format: 'JSON'
+          args: >
+            --enableExperimental
+        continue-on-error: true
+      
+      - name: Upload security report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: owasp-ios-report
+          path: reports/
+        continue-on-error: true
