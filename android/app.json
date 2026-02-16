@@ -1,0 +1,12 @@
+{
+  "name": "WaveMeet",
+  "displayName": "WaveMeet",
+  "description": "Secure messaging application for Android",
+  "version": "1.0.0",
+  "expo": {
+    "name": "WaveMeet",
+    "slug": "wavemeet-android",
+    "version": "1.0.0",
+    "assetBundlePatterns": ["**/*"]
+  }
+}
