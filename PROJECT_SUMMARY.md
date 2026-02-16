@@ -313,7 +313,7 @@ Includes configurations for:
 
 1. **Start Services**:
    ```bash
-   cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+   cd WaveMeet
    make setup
    ```
 

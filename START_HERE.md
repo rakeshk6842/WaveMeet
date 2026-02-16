@@ -26,7 +26,7 @@ This is a **complete WaveMeet messaging application** that runs in a **RHEL 10 d
 
 ### 1️⃣ Start Services
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 make setup
 ```
 
@@ -408,7 +408,7 @@ After setup:
 ## 🚀 Ready? Let's Go!
 
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 make setup
 # Then visit http://localhost:3000
 ```

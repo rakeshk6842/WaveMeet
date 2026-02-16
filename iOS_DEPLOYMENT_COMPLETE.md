@@ -135,7 +135,7 @@ pod --version         # Should show CocoaPods version
 
 ### Step 2: Run Setup
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 chmod +x deploy-ios.sh
 ./deploy-ios.sh setup
 ```
@@ -250,7 +250,7 @@ xcrun simctl create "iPhone 15 Pro" \
 ## 📊 Project Structure Summary
 
 ```
-/Users/rakeshkoripella/Desktop/projects/docker-ai-workspace/
+WaveMeet/
 ├── 📁 ios/                          # iOS app (NEW ✨)
 │   ├── package.json                 # Dependencies
 │   ├── index.js                     # Entry point
@@ -588,7 +588,7 @@ February 15, 2026
 **🎯 Ready to Deploy?**
 
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 ./deploy-ios.sh setup && ./deploy-ios.sh simulator
 ```
 

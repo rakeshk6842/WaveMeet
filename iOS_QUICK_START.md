@@ -24,7 +24,7 @@ pod --version         # Should be installed
 
 **Step 1: Setup (Run once)**
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 ./deploy-ios.sh setup
 ```
 
@@ -52,7 +52,7 @@ In the simulator:
 
 ```bash
 # Navigate to project
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 
 # Option A: Deploy to Simulator (Easiest)
 ./deploy-ios.sh simulator
@@ -68,7 +68,7 @@ cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
 
 ```bash
 # Step 1: Navigate to iOS app directory
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace/ios
+cd WaveMeet/ios
 
 # Step 2: Install dependencies
 npm install
@@ -88,7 +88,7 @@ npx react-native run-ios --device
 
 ```bash
 # Step 1: Open Xcode project
-open /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace/ios/ios/WaveMeet.xcworkspace
+open WaveMeet/ios/ios/WaveMeet.xcworkspace
 
 # Step 2: In Xcode, select your target:
 # - Simulator: Click top left simulator selector
@@ -97,7 +97,7 @@ open /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace/ios/ios/WaveMee
 # Step 3: Click "Play" button (Cmd + R) to build and run
 
 # Step 4: In another terminal, start Metro bundler
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace/ios
+cd WaveMeet/ios
 npm start
 ```
 
@@ -380,7 +380,7 @@ Beta Distribution:
 
 **Ready to test? Start with:**
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 ./deploy-ios.sh setup
 ./deploy-ios.sh simulator
 ```

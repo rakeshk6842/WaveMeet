@@ -66,7 +66,7 @@
 
 ### **Step 1: Setup** (First time only - 3-5 minutes)
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 chmod +x deploy-ios.sh
 ./deploy-ios.sh setup
 ```
@@ -548,7 +548,7 @@ The app is ready for:
 
 **All files are in:**
 ```
-/Users/rakeshkoripella/Desktop/projects/docker-ai-workspace/
+WaveMeet/
 ```
 
 **Start with:**

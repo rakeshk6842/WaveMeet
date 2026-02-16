@@ -3,7 +3,7 @@
 **Date**: February 15, 2026  
 **Status**: ✅ **VERIFIED & READY TO RUN**  
 **Version**: 1.0.0  
-**Location**: `/Users/rakeshkoripella/Desktop/projects/docker-ai-workspace`
+**Location**: `WaveMeet`
 
 ---
 
@@ -189,7 +189,7 @@ Health Checks: ✅ Configured for postgres & redis
 
 ```bash
 # Navigate to project
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 
 # One-command setup
 make setup
@@ -299,7 +299,7 @@ Your WaveMeet project is **complete, verified, and ready to run**!
 **What's Next?**
 
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 make setup    # Start the application
 ```
 

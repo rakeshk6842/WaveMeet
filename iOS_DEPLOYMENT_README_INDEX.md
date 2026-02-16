@@ -104,7 +104,7 @@ Verify you have:
 
 ### **Step 2: Setup** (5 minutes)
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 chmod +x deploy-ios.sh
 ./deploy-ios.sh setup
 ```
@@ -326,7 +326,7 @@ You'll know it's working when:
 
 All files are in:
 ```
-/Users/rakeshkoripella/Desktop/projects/docker-ai-workspace/
+WaveMeet/
 ```
 
 Key files:
