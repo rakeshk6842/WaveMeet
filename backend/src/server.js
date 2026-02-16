@@ -1,5 +1,4 @@
 import express from 'express';
-import express from 'express';
 import { createServer } from 'http';
 import { Server as SocketIOServer } from 'socket.io';
 import cors from 'cors';
@@ -233,7 +232,7 @@ io.on('connection', (socket) => {
 });
 
 // Start server
-const PORT = process.env.BACKEND_PORT || 5000;
+const PORT = process.env.BACKEND_PORT || process.env.PORT || 5001;
 server.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`📊 WebSocket server ready on ws://localhost:${PORT}`);

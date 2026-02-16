@@ -3,9 +3,9 @@ FROM registry.access.redhat.com/ubi9/ubi:latest
 LABEL maintainer="dev@example.com" \
       description="RHEL 10 Development Container with Node.js, Python, and Database Tools"
 
-# Update system packages
+# Update system packages (skip nodejs and npm initially)
 RUN yum update -y && \
-    yum install -y \
+    yum install -y --allowerasing \
     git \
     curl \
     wget \
@@ -19,18 +19,27 @@ RUN yum update -y && \
     python3 \
     python3-pip \
     python3-devel \
-    nodejs \
-    npm \
     postgresql-devel \
     sqlite-devel \
     libffi-devel \
     openssl-devel \
-    redis \
-    supervisor \
     && yum clean all
 
-# Install Node.js LTS
-RUN npm install -g npm@latest yarn pnpm
+# Install Redis and Redis Tools from source (redis-server not in UBI9)
+RUN curl -fsSL https://download.redis.io/redis-stable.tar.gz | tar -xz && \
+    cd redis-stable && \
+    make && \
+    make install && \
+    cd .. && \
+    rm -rf redis-stable && \
+    mkdir -p /var/lib/redis && \
+    useradd -r -s /bin/false redis || true
+
+# Install newer Node.js LTS using NodeSource repo (handles npm replacement)
+RUN curl -sL https://rpm.nodesource.com/setup_20.x | bash - && \
+    yum remove -y nodejs npm 2>/dev/null || true && \
+    yum install -y nodejs && \
+    npm install -g yarn pnpm
 
 # Install Python development tools
 RUN pip3 install --upgrade pip setuptools wheel && \
@@ -47,8 +56,10 @@ RUN pip3 install --upgrade pip setuptools wheel && \
     gunicorn
 
 # Create non-root user
-RUN useradd -m -s /bin/bash -G wheel vscode && \
-    echo "vscode ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/vscode
+RUN mkdir -p /etc/sudoers.d && \
+    useradd -m -s /bin/bash -G wheel vscode && \
+    echo "vscode ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/vscode && \
+    chmod 440 /etc/sudoers.d/vscode
 
 # Set working directory
 WORKDIR /workspace
