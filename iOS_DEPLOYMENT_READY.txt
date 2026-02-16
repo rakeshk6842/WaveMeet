@@ -54,7 +54,7 @@
 ═══════════════════════════════════════════════════════════════════════════
 
 1. Navigate to project:
-   cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+   cd WaveMeet
 
 2. Run setup (first time only):
    chmod +x deploy-ios.sh
@@ -260,7 +260,7 @@ Recommended:
 
 Execute this command RIGHT NOW:
 
-  cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+  cd WaveMeet
 
 Then read:
 
