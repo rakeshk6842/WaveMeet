@@ -1,0 +1,92 @@
+version: '3.9'
+
+services:
+  # Main development container
+  dev:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    container_name: whatsapp-dev-container
+    volumes:
+      - .:/workspace
+      - /workspace/node_modules
+      - /workspace/.devcontainer:/workspace/.devcontainer
+    ports:
+      - "3000:3000"   # Frontend
+      - "5000:5000"   # Backend API
+      - "8000:8000"   # WebSocket/Chat Server
+      - "9000:9000"   # Admin/Monitoring
+    environment:
+      - NODE_ENV=development
+      - PYTHONUNBUFFERED=1
+      - POSTGRES_HOST=postgres
+      - REDIS_HOST=redis
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - whatsapp-network
+    stdin_open: true
+    tty: true
+    command: /bin/bash
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: whatsapp-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: whatsapp_db
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - whatsapp-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: whatsapp-redis
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - whatsapp-network
+
+  # pgAdmin for Database Management
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: whatsapp-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - whatsapp-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  whatsapp-network:
+    driver: bridge

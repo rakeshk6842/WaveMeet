@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Custom animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+/* Message bubble styles */
+.message-bubble {
+  border-radius: 8px;
+  padding: 8px 12px;
+  word-wrap: break-word;
+  max-width: 70%;
+}
+
+.message-sent {
+  background-color: #dcf8c6;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+}
+
+.message-received {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-bottom-left-radius: 4px;
+}
