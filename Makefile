@@ -2,10 +2,10 @@
 
 # Variables
 COMPOSE = docker-compose
-CONTAINER = whatsapp-dev-container
+CONTAINER = wavemeet-dev-container
 
 help: ## Show this help message
-	@echo "WhatsApp Clone - Make Commands"
+	@echo "WaveMeet - Make Commands"
 	@echo "==============================="
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
@@ -60,21 +60,21 @@ frontend-install: ## Install frontend dependencies
 	cd frontend && npm install
 
 db-init: ## Initialize database
-	$(COMPOSE) exec postgres psql -U postgres -c "CREATE DATABASE whatsapp_db;" 2>/dev/null || true
-	$(COMPOSE) exec postgres psql -U postgres -d whatsapp_db -f /docker-entrypoint-initdb.d/init.sql
+	$(COMPOSE) exec postgres psql -U postgres -c "CREATE DATABASE wavemeet_db;" 2>/dev/null || true
+	$(COMPOSE) exec postgres psql -U postgres -d wavemeet_db -f /docker-entrypoint-initdb.d/init.sql
 	@echo "✅ Database initialized"
 
 db-reset: ## Reset database
-	$(COMPOSE) exec postgres dropdb -U postgres whatsapp_db 2>/dev/null || true
-	$(COMPOSE) exec postgres createdb -U postgres whatsapp_db
-	$(COMPOSE) exec postgres psql -U postgres -d whatsapp_db -f /docker-entrypoint-initdb.d/init.sql
+	$(COMPOSE) exec postgres dropdb -U postgres wavemeet_db 2>/dev/null || true
+	$(COMPOSE) exec postgres createdb -U postgres wavemeet_db
+	$(COMPOSE) exec postgres psql -U postgres -d wavemeet_db -f /docker-entrypoint-initdb.d/init.sql
 	@echo "✅ Database reset completed"
 
 shell: ## Open shell in dev container
 	$(COMPOSE) exec dev /bin/bash
 
 psql: ## Open PostgreSQL shell
-	$(COMPOSE) exec postgres psql -U postgres -d whatsapp_db
+	$(COMPOSE) exec postgres psql -U postgres -d wavemeet_db
 
 redis-cli: ## Open Redis CLI
 	$(COMPOSE) exec redis redis-cli

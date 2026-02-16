@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# WhatsApp Clone - Setup Verification Script
+# WaveMeet - Setup Verification Script
 # This script verifies that all project files are in place
 
 echo "════════════════════════════════════════════════════════════════"
-echo "  🔍 WhatsApp Clone - Project Verification"
+echo "  🔍 WaveMeet - Project Verification"
 echo "════════════════════════════════════════════════════════════════"
 echo ""
 
@@ -125,7 +125,7 @@ echo ""
 if [ $FAILED -eq 0 ]; then
     echo -e "${GREEN}✅ ALL CHECKS PASSED!${NC}"
     echo ""
-    echo "🚀 Your WhatsApp Clone is ready to run!"
+    echo "🚀 Your WaveMeet is ready to run!"
     echo ""
     echo "Next steps:"
     echo "  1. cd $PROJECT_DIR"

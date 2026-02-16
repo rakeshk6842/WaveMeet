@@ -1,6 +1,6 @@
-# 📚 WhatsApp Clone - Complete Documentation Index
+# 📚 WaveMeet - Complete Documentation Index
 
-Welcome to your WhatsApp-like application! This document helps you navigate all the documentation and get started quickly.
+Welcome to your WaveMeet application! This document helps you navigate all the documentation and get started quickly.
 
 ## 🚀 Quick Navigation
 
@@ -385,5 +385,5 @@ Choose your starting point above and begin your journey. Most people start with 
 ---
 
 **Last Updated**: February 2026
-**Project**: WhatsApp Clone - RHEL 10 Dev Container
+**Project**: WaveMeet - RHEL 10 Dev Container
 **Status**: Production Ready ✅

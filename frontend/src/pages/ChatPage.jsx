@@ -55,7 +55,7 @@ export default function ChatPage() {
     return (
       <div className="flex items-center justify-center h-screen bg-gray-100">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-whatsapp-green mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-wavemeet-green mx-auto mb-4"></div>
           <p className="text-gray-600">Loading conversations...</p>
         </div>
       </div>

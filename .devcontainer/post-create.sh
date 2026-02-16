@@ -38,7 +38,7 @@ FRONTEND_ENV=development
 # Database Configuration
 DB_HOST=localhost
 DB_PORT=5432
-DB_NAME=whatsapp_db
+DB_NAME=wavemeet_db
 DB_USER=postgres
 DB_PASSWORD=postgres
 

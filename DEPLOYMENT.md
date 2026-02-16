@@ -86,7 +86,7 @@ docker-compose logs dev
 ### Create namespace
 
 ```bash
-kubectl create namespace whatsapp
+kubectl create namespace wavemeet
 ```
 
 ### Deploy PostgreSQL
@@ -96,7 +96,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres
-  namespace: whatsapp
+  namespace: wavemeet
 spec:
   replicas: 1
   selector:
@@ -114,7 +114,7 @@ spec:
         - containerPort: 5432
         env:
         - name: POSTGRES_DB
-          value: whatsapp_db
+          value: wavemeet_db
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
@@ -132,7 +132,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: postgres
-  namespace: whatsapp
+  namespace: wavemeet
 spec:
   selector:
     app: postgres
@@ -145,7 +145,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: postgres-pvc
-  namespace: whatsapp
+  namespace: wavemeet
 spec:
   accessModes:
     - ReadWriteOnce
@@ -161,7 +161,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redis
-  namespace: whatsapp
+  namespace: wavemeet
 spec:
   replicas: 1
   selector:
@@ -189,7 +189,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: redis
-  namespace: whatsapp
+  namespace: wavemeet
 spec:
   selector:
     app: redis
@@ -202,7 +202,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: redis-pvc
-  namespace: whatsapp
+  namespace: wavemeet
 spec:
   accessModes:
     - ReadWriteOnce
@@ -218,7 +218,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
-  namespace: whatsapp
+  namespace: wavemeet
 spec:
   replicas: 3
   selector:
@@ -231,7 +231,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: your-registry/whatsapp-backend:latest
+        image: your-registry/wavemeet-backend:latest
         ports:
         - containerPort: 5000
         env:
@@ -270,7 +270,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: backend
-  namespace: whatsapp
+  namespace: wavemeet
 spec:
   selector:
     app: backend
@@ -287,7 +287,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
-  namespace: whatsapp
+  namespace: wavemeet
 spec:
   replicas: 2
   selector:
@@ -300,7 +300,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: your-registry/whatsapp-frontend:latest
+        image: your-registry/wavemeet-frontend:latest
         ports:
         - containerPort: 3000
         env:
@@ -330,7 +330,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: frontend
-  namespace: whatsapp
+  namespace: wavemeet
 spec:
   selector:
     app: frontend
@@ -345,11 +345,11 @@ spec:
 ```bash
 kubectl create secret generic db-secrets \
   --from-literal=password=your-secure-password \
-  -n whatsapp
+  -n wavemeet
 
 kubectl create secret generic app-secrets \
   --from-literal=jwt-secret=your-jwt-secret \
-  -n whatsapp
+  -n wavemeet
 ```
 
 ### Deploy to Kubernetes
@@ -361,10 +361,10 @@ kubectl apply -f k8s/backend.yaml
 kubectl apply -f k8s/frontend.yaml
 
 # Check deployment status
-kubectl get all -n whatsapp
+kubectl get all -n wavemeet
 
 # View logs
-kubectl logs -f deployment/backend -n whatsapp
+kubectl logs -f deployment/backend -n wavemeet
 ```
 
 ## Docker Hub Registry
@@ -373,17 +373,17 @@ kubectl logs -f deployment/backend -n whatsapp
 
 ```bash
 # Build backend image
-docker build -f backend/Dockerfile -t your-registry/whatsapp-backend:latest backend/
+docker build -f backend/Dockerfile -t your-registry/wavemeet-backend:latest backend/
 
 # Build frontend image
-docker build -f frontend/Dockerfile -t your-registry/whatsapp-frontend:latest frontend/
+docker build -f frontend/Dockerfile -t your-registry/wavemeet-frontend:latest frontend/
 
 # Login to registry
 docker login
 
 # Push images
-docker push your-registry/whatsapp-backend:latest
-docker push your-registry/whatsapp-frontend:latest
+docker push your-registry/wavemeet-backend:latest
+docker push your-registry/wavemeet-frontend:latest
 ```
 
 ## AWS ECS Deployment
@@ -392,7 +392,7 @@ docker push your-registry/whatsapp-frontend:latest
 
 ```json
 {
-  "family": "whatsapp-backend",
+  "family": "wavemeet-backend",
   "networkMode": "awsvpc",
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "256",
@@ -400,7 +400,7 @@ docker push your-registry/whatsapp-frontend:latest
   "containerDefinitions": [
     {
       "name": "backend",
-      "image": "your-ecr-repo/whatsapp-backend:latest",
+      "image": "your-ecr-repo/wavemeet-backend:latest",
       "portMappings": [
         {
           "containerPort": 5000,
@@ -420,7 +420,7 @@ docker push your-registry/whatsapp-frontend:latest
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/whatsapp",
+          "awslogs-group": "/ecs/wavemeet",
           "awslogs-region": "us-east-1",
           "awslogs-stream-prefix": "ecs"
         }
@@ -434,7 +434,7 @@ docker push your-registry/whatsapp-frontend:latest
 
 ```bash
 ecs-cli compose service up \
-  --cluster-name whatsapp-cluster \
+  --cluster-name wavemeet-cluster \
   --region us-east-1
 ```
 
@@ -463,13 +463,13 @@ docker-compose -f docker-compose.elk.yml up -d
 ### PostgreSQL Backup
 
 ```bash
-docker-compose exec postgres pg_dump -U postgres whatsapp_db > backup.sql
+docker-compose exec postgres pg_dump -U postgres wavemeet_db > backup.sql
 ```
 
 ### PostgreSQL Restore
 
 ```bash
-docker-compose exec postgres psql -U postgres whatsapp_db < backup.sql
+docker-compose exec postgres psql -U postgres wavemeet_db < backup.sql
 ```
 
 ### Redis Backup

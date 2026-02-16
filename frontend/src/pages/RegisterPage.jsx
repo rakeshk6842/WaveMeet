@@ -53,10 +53,10 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-whatsapp-green to-green-600 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-wavemeet-green to-green-600 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-whatsapp-green mb-2">WhatsApp</h1>
+          <h1 className="text-4xl font-bold text-wavemeet-green mb-2">WaveMeet</h1>
           <p className="text-gray-600">Create a new account</p>
         </div>
 
@@ -72,7 +72,7 @@ export default function RegisterPage() {
               onChange={handleChange}
               placeholder="Choose a username"
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-whatsapp-green"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wavemeet-green"
             />
           </div>
 
@@ -87,7 +87,7 @@ export default function RegisterPage() {
               onChange={handleChange}
               placeholder="Enter your email"
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-whatsapp-green"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wavemeet-green"
             />
           </div>
 
@@ -102,7 +102,7 @@ export default function RegisterPage() {
               onChange={handleChange}
               placeholder="Enter a password"
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-whatsapp-green"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wavemeet-green"
             />
           </div>
 
@@ -117,14 +117,14 @@ export default function RegisterPage() {
               onChange={handleChange}
               placeholder="Confirm your password"
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-whatsapp-green"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wavemeet-green"
             />
           </div>
 
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-whatsapp-green text-white font-semibold py-2 rounded-lg hover:bg-green-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-wavemeet-green text-white font-semibold py-2 rounded-lg hover:bg-green-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? 'Creating account...' : 'Sign Up'}
           </button>
@@ -133,7 +133,7 @@ export default function RegisterPage() {
         <div className="mt-6 text-center">
           <p className="text-gray-600">
             Already have an account?{' '}
-            <Link to="/login" className="text-whatsapp-green font-semibold hover:underline">
+            <Link to="/login" className="text-wavemeet-green font-semibold hover:underline">
               Sign in
             </Link>
           </p>

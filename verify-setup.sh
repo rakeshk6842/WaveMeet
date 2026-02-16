@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# WhatsApp Clone - Project Complete Setup Script
+# WaveMeet - Project Complete Setup Script
 # This script verifies your project setup is complete
 
 set -e
 
 echo "═══════════════════════════════════════════════════════════════════"
-echo "  WhatsApp Clone - Project Completion Verification"
+echo "  WaveMeet - Project Completion Verification"
 echo "═══════════════════════════════════════════════════════════════════"
 echo ""
 
@@ -131,7 +131,7 @@ echo ""
 if [ $COMPLETED -eq $TOTAL ]; then
     echo -e "${GREEN}✅ All files are in place!${NC}"
     echo ""
-    echo "🚀 Your WhatsApp Clone is ready to run!"
+    echo "🚀 Your WaveMeet is ready to run!"
     echo ""
     echo "Next steps:"
     echo "1. cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace"

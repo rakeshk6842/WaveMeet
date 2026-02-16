@@ -1,7 +1,7 @@
 {
-  "name": "whatsapp-frontend",
+  "name": "wavemeet-frontend",
   "version": "1.0.0",
-  "description": "WhatsApp-like frontend application built with React",
+  "description": "WaveMeet frontend application built with React",
   "private": true,
   "type": "module",
   "scripts": {

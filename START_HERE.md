@@ -1,4 +1,4 @@
-# 🎊 WhatsApp Clone - Complete Project Setup ✅
+# 🎊 WaveMeet - Complete Project Setup ✅
 
 > **Status**: ✅ **COMPLETE & PRODUCTION-READY**  
 > **Created**: February 2026  
@@ -9,7 +9,7 @@
 
 ## 📋 Quick Overview
 
-This is a **complete WhatsApp-like messaging application** that runs in a **RHEL 10 development container** with:
+This is a **complete WaveMeet messaging application** that runs in a **RHEL 10 development container** with:
 
 - ✅ **Frontend**: React 18 + Vite + Tailwind CSS
 - ✅ **Backend**: Node.js + Express.js + Socket.io
@@ -425,7 +425,7 @@ MIT - Use freely for personal and commercial projects
 
 ## 🙏 Thank You!
 
-Your complete WhatsApp-like application is ready to:
+Your complete WaveMeet application is ready to:
 - Run immediately
 - Develop features
 - Deploy globally

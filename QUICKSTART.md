@@ -165,7 +165,7 @@ make setup
 **PostgreSQL:**
 - User: `postgres`
 - Password: `postgres`
-- Database: `whatsapp_db`
+- Database: `wavemeet_db`
 
 ## 📚 Next Steps
 
@@ -200,6 +200,6 @@ make setup
 
 ## 🎉 You're All Set!
 
-Your WhatsApp-like application is now running. Start developing and enjoy real-time messaging! 
+Your WaveMeet application is now running. Start developing and enjoy real-time messaging! 
 
 ### Happy Coding! 🚀

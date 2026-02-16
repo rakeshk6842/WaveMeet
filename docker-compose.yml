@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: .devcontainer/Dockerfile
-    container_name: whatsapp-dev-container
+    container_name: wavemeet-dev-container
     volumes:
       - .:/workspace
       - /workspace/node_modules
@@ -24,7 +24,7 @@ services:
       - postgres
       - redis
     networks:
-      - whatsapp-network
+      - wavemeet-network
     stdin_open: true
     tty: true
     command: /bin/bash
@@ -32,11 +32,11 @@ services:
   # PostgreSQL Database
   postgres:
     image: postgres:15-alpine
-    container_name: whatsapp-postgres
+    container_name: wavemeet-postgres
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: whatsapp_db
+      POSTGRES_DB: wavemeet_db
       POSTGRES_INITDB_ARGS: "--encoding=UTF8"
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -49,12 +49,12 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - whatsapp-network
+      - wavemeet-network
 
   # Redis Cache
   redis:
     image: redis:7-alpine
-    container_name: whatsapp-redis
+    container_name: wavemeet-redis
     volumes:
       - redis_data:/data
     ports:
@@ -65,12 +65,12 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - whatsapp-network
+      - wavemeet-network
 
   # pgAdmin for Database Management
   pgadmin:
     image: dpage/pgadmin4:latest
-    container_name: whatsapp-pgadmin
+    container_name: wavemeet-pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: admin
@@ -80,12 +80,12 @@ services:
     depends_on:
       - postgres
     networks:
-      - whatsapp-network
+      - wavemeet-network
 
 volumes:
   postgres_data:
   redis_data:
 
 networks:
-  whatsapp-network:
+  wavemeet-network:
     driver: bridge

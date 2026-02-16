@@ -335,7 +335,7 @@ make psql
 ALTER SYSTEM SET log_min_duration_statement = 100;
 
 # Monitor memory usage
-docker stats whatsapp-dev-container
+docker stats wavemeet-dev-container
 ```
 
 ### Optimize Queries
@@ -431,8 +431,8 @@ docker push registry/frontend:latest
 kubectl apply -f k8s/
 
 # Verify
-kubectl get all -n whatsapp
-kubectl logs deployment/backend -n whatsapp
+kubectl get all -n wavemeet
+kubectl logs deployment/backend -n wavemeet
 ```
 
 ## 🔄 Git Workflow

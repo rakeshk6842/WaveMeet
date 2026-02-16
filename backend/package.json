@@ -1,7 +1,7 @@
 {
-  "name": "whatsapp-backend",
+  "name": "wavemeet-backend",
   "version": "1.0.0",
-  "description": "WhatsApp-like backend application with real-time messaging",
+  "description": "WaveMeet backend application with real-time messaging",
   "main": "src/server.js",
   "type": "module",
   "scripts": {

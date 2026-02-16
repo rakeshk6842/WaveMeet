@@ -1,8 +1,8 @@
-# WhatsApp Clone - Final Verification & Getting Started Guide
+# WaveMeet - Final Verification & Getting Started Guide
 
 ## ✅ Project Setup Complete!
 
-Your WhatsApp-like application is now fully configured and ready to use. This guide will help you get started.
+Your WaveMeet application is now fully configured and ready to use. This guide will help you get started.
 
 ## 🚀 Quick Start (5 Minutes)
 
@@ -311,7 +311,7 @@ make setup
 
 ## Summary
 
-Your WhatsApp Clone is **production-ready** with:
+Your WaveMeet is **production-ready** with:
 - ✅ Complete development environment
 - ✅ Full-stack application
 - ✅ Real-time messaging

@@ -54,7 +54,7 @@
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                 Docker Compose Network                      │
-│  (whatsapp-network - bridge network)                       │
+│  (wavemeet-network - bridge network)                       │
 │                                                             │
 │  ┌──────────────────────────────────────────────────────┐  │
 │  │  Dev Container (RHEL 9 UBI)                         │  │
@@ -78,7 +78,7 @@
 │  │  PostgreSQL (Alpine)                                │  │
 │  │  - Port: 5432                                       │  │
 │  │  - Volume: postgres_data                            │  │
-│  │  - Database: whatsapp_db                            │  │
+│  │  - Database: wavemeet_db                            │  │
 │  └──────────────────────────────────────────────────────┘  │
 │                                                             │
 │  ┌──────────────────────────────────────────────────────┐  │
@@ -373,7 +373,7 @@ Server → Client
 ### Docker Compose (Development)
 ```
 Docker Host
-├── Network (whatsapp-network)
+├── Network (wavemeet-network)
 ├── Dev Container (RHEL 9)
 ├── PostgreSQL Container
 ├── Redis Container
@@ -383,7 +383,7 @@ Docker Host
 ### Kubernetes (Production)
 ```
 K8s Cluster
-├── Namespace: whatsapp
+├── Namespace: wavemeet
 ├── Deployments
 │   ├── backend (3 replicas)
 │   ├── frontend (2 replicas)

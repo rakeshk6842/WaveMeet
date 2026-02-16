@@ -47,7 +47,7 @@ export default function Sidebar({ user, onLogout, onRefresh }) {
           placeholder="Search conversations..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full px-4 py-2 bg-gray-100 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-whatsapp-green"
+          className="w-full px-4 py-2 bg-gray-100 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-wavemeet-green"
         />
       </div>
 
@@ -70,7 +70,7 @@ export default function Sidebar({ user, onLogout, onRefresh }) {
               }`}
             >
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-whatsapp-green flex items-center justify-center text-white font-semibold">
+                <div className="w-12 h-12 rounded-full bg-wavemeet-green flex items-center justify-center text-white font-semibold">
                   {conversation.username?.[0]?.toUpperCase() || '?'}
                 </div>
                 <div className="flex-1 min-w-0">

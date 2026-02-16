@@ -1,4 +1,4 @@
-# WhatsApp Clone - RHEL 10 Development Container
+# WaveMeet - RHEL 10 Development Container
 
 A full-stack real-time messaging application built with Node.js, React, PostgreSQL, and Redis, running in a RHEL 10 development container.
 
@@ -91,7 +91,7 @@ docker-compose logs -f dev
 
 ### PostgreSQL
 - Port: `5432`
-- Database: `whatsapp_db`
+- Database: `wavemeet_db`
 - User: `postgres`
 - Password: `postgres`
 - Adminer UI: http://localhost:5050
@@ -225,9 +225,9 @@ docker-compose up -d
 docker-compose logs postgres
 
 # Reset database
-docker-compose exec postgres dropdb whatsapp_db
-docker-compose exec postgres createdb whatsapp_db
-docker-compose exec postgres psql whatsapp_db < scripts/init-db.sql
+docker-compose exec postgres dropdb wavemeet_db
+docker-compose exec postgres createdb wavemeet_db
+docker-compose exec postgres psql wavemeet_db < scripts/init-db.sql
 ```
 
 ### Port conflicts

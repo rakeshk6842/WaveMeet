@@ -131,7 +131,7 @@ export default function ChatWindow({ user }) {
         {isLoading ? (
           <div className="flex items-center justify-center h-full">
             <div className="text-center text-gray-500">
-              <div className="animate-spin rounded-full h-8 w-8 border-t-4 border-whatsapp-green mx-auto mb-2"></div>
+              <div className="animate-spin rounded-full h-8 w-8 border-t-4 border-wavemeet-green mx-auto mb-2"></div>
               <p>Loading messages...</p>
             </div>
           </div>
@@ -170,12 +170,12 @@ export default function ChatWindow({ user }) {
           value={inputMessage}
           onChange={handleInputChange}
           placeholder="Type a message..."
-          className="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-whatsapp-green"
+          className="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-wavemeet-green"
         />
         <button
           onClick={handleSendMessage}
           disabled={!inputMessage.trim()}
-          className="px-6 py-2 bg-whatsapp-green text-white rounded-full hover:bg-green-600 transition disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
+          className="px-6 py-2 bg-wavemeet-green text-white rounded-full hover:bg-green-600 transition disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
         >
           Send
         </button>

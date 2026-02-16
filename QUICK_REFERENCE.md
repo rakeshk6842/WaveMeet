@@ -1,4 +1,4 @@
-# 🚀 WhatsApp Clone - Quick Reference Card
+# 🚀 WaveMeet - Quick Reference Card
 
 ## ⚡ 60-Second Quick Start
 

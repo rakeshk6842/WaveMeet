@@ -1,6 +1,6 @@
 # ✅ Setup & Verification Checklist
 
-Use this checklist to verify your WhatsApp Clone setup is complete and working correctly.
+Use this checklist to verify your WaveMeet setup is complete and working correctly.
 
 ## 🎯 Pre-Setup Checklist
 
@@ -85,7 +85,7 @@ make psql
 SELECT COUNT(*) FROM users;
 ```
 - [ ] Can connect to PostgreSQL
-- [ ] `whatsapp_db` database exists
+- [ ] `wavemeet_db` database exists
 - [ ] Tables created (users, conversations, etc.)
 - [ ] Sample data exists (~4 users)
 
@@ -317,10 +317,10 @@ Each container should show:
 ### Check Docker Network
 ```bash
 docker network ls
-docker network inspect whatsapp-network
+docker network inspect wavemeet-network
 ```
 
-- [ ] `whatsapp-network` exists
+- [ ] `wavemeet-network` exists
 - [ ] All containers connected to network
 - [ ] Can ping between containers
 
@@ -448,4 +448,4 @@ Refer to:
 
 ---
 
-**Congratulations!** Your WhatsApp Clone is now fully set up and verified! 🚀
+**Congratulations!** Your WaveMeet is now fully set up and verified! 🚀

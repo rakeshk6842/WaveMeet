@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        'whatsapp-green': '#25D366',
-        'whatsapp-dark': '#111B21',
-        'whatsapp-lighter': '#202C33',
+        'wavemeet-green': '#25D366',
+        'wavemeet-dark': '#111B21',
+        'wavemeet-lighter': '#202C33',
       }
     },
   },
