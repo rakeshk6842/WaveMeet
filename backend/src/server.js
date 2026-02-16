@@ -25,7 +25,12 @@ const io = new SocketIOServer(server, {
 });
 
 // Middleware
-app.use(cors());
+const allowedOrigins = (process.env.ALLOWED_ORIGINS || process.env.FRONTEND_URL || 'http://localhost:3000').split(',');
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -62,7 +67,7 @@ const authenticateToken = (req, res, next) => {
 
   if (!token) return res.sendStatus(401);
 
-  jwt.verify(token, process.env.JWT_SECRET || 'your_secret_key', (err, user) => {
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
     if (err) return res.sendStatus(403);
     req.user = user;
     next();
@@ -82,7 +87,7 @@ app.post('/api/auth/register', async (req, res) => {
     `;
     
     const result = await pool.query(query, [userId, username, email, password]);
-    res.json({ user: result.rows[0], token: jwt.sign({ userId, username }, process.env.JWT_SECRET || 'your_secret_key') });
+    res.json({ user: result.rows[0], token: jwt.sign({ userId, username }, process.env.JWT_SECRET) });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -101,7 +106,7 @@ app.post('/api/auth/login', async (req, res) => {
     }
     
     const user = result.rows[0];
-    const token = jwt.sign({ userId: user.id, username: user.username }, process.env.JWT_SECRET || 'your_secret_key');
+    const token = jwt.sign({ userId: user.id, username: user.username }, process.env.JWT_SECRET);
     
     res.json({ user, token });
   } catch (error) {
