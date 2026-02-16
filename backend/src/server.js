@@ -16,13 +16,16 @@ dotenv.config();
 const app = express();
 const server = createServer(app);
 
+// Parse allowed CORS origins from environment
+const allowedOrigins = (process.env.ALLOWED_ORIGINS || process.env.FRONTEND_URL || 'http://localhost:3000')
+  .split(',')
+  .map(origin => origin.trim())
+  .filter(origin => origin && origin !== '*');
+
 // Initialize Socket.io
 const io = new SocketIOServer(server, {
   cors: {
-    origin: (process.env.ALLOWED_ORIGINS || process.env.FRONTEND_URL || 'http://localhost:3000')
-      .split(',')
-      .map(origin => origin.trim())
-      .filter(origin => origin && origin !== '*'),
+    origin: allowedOrigins,
     methods: ['GET', 'POST']
   }
 });
@@ -34,11 +37,6 @@ if (!process.env.JWT_SECRET) {
 }
 
 // Middleware
-const allowedOrigins = (process.env.ALLOWED_ORIGINS || process.env.FRONTEND_URL || 'http://localhost:3000')
-  .split(',')
-  .map(origin => origin.trim())
-  .filter(origin => origin && origin !== '*');
-
 app.use(cors({
   origin: (origin, callback) => {
     // Allow requests with no Origin header (e.g., curl, same-origin)
@@ -48,7 +46,7 @@ app.use(cors({
     if (allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
-    return callback(new Error('Not allowed by CORS'));
+    return callback(new Error(`Not allowed by CORS: ${origin}`));
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true
