@@ -10,7 +10,7 @@ Your **WaveMeet messaging application** with RHEL 10 dev container has been full
 
 ```bash
 # 1. Go to your project
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 
 # 2. Start everything
 make setup
@@ -162,7 +162,7 @@ Ready to Use:         ✅ YES
 ## 🎯 Next Action
 
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd WaveMeet
 make setup
 open http://localhost:3000
 ```
