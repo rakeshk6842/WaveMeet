@@ -89,7 +89,7 @@ react-native --version
 
 ```bash
 # Navigate to the project directory
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd /path/to/WaveMeet
 
 # Verify structure
 ls -la
@@ -229,7 +229,7 @@ open WaveMeet.xcworkspace  # Note: .xcworkspace, not .xcodeproj
 # 3. Wait for build to complete
 
 # In another terminal, start Metro bundler
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace/ios
+cd /path/to/WaveMeet/ios
 npm start
 ```
 

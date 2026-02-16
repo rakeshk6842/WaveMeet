@@ -98,7 +98,7 @@ scripts/
 
 ### Step 1: Start Everything
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd /path/to/WaveMeet
 make setup
 ```
 
@@ -429,7 +429,7 @@ Your complete WaveMeet application is ready!
 **Status**: Complete & Production-Ready  
 **Created**: February 2026  
 **License**: MIT  
-**Workspace**: `/Users/rakeshkoripella/Desktop/projects/docker-ai-workspace`  
+**Workspace**: `/path/to/WaveMeet`  
 
 ---
 

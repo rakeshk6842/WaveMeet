@@ -9,7 +9,7 @@ Your WaveMeet with RHEL 10 dev container has been fully created and tested.
 ## 🚀 START IN 60 SECONDS
 
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd /path/to/WaveMeet
 make setup
 open http://localhost:3000
 ```
@@ -199,7 +199,7 @@ Everything is ready to use:
 ## 🚀 Next Step
 
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd /path/to/WaveMeet
 make setup
 open http://localhost:3000
 ```

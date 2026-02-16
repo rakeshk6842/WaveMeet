@@ -9,7 +9,7 @@
 ### Step 1: Clone and Setup
 
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd /path/to/WaveMeet
 cp .env.example .env
 ```
 

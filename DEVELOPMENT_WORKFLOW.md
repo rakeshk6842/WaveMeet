@@ -6,7 +6,7 @@
 
 ```bash
 # Navigate to project
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd /path/to/WaveMeet
 
 # Start all services
 make setup

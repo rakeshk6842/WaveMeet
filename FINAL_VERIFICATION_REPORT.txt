@@ -5,7 +5,7 @@
 PROJECT: WaveMeet with RHEL 10 Dev Container
 VERSION: 1.0.0
 DATE: February 15, 2026
-LOCATION: /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+LOCATION: /path/to/WaveMeet
 STATUS: ✅ PRODUCTION READY
 
 ═══════════════════════════════════════════════════════════════════════════════
@@ -151,7 +151,7 @@ STATUS: ✅ PRODUCTION READY
 
 To start your application, run:
 
-   cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+   cd /path/to/WaveMeet
    make setup
 
 Wait 2-3 minutes for services to start, then open:
@@ -284,7 +284,7 @@ Your WaveMeet with RHEL 10 dev container is:
 
 Everything is in place. Start building!
 
-   cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+   cd /path/to/WaveMeet
    make setup
    open http://localhost:3000
 

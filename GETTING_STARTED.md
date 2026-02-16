@@ -8,7 +8,7 @@ Your WaveMeet application is now fully configured and ready to use. This guide w
 
 ### 1. Start All Services
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd /path/to/WaveMeet
 make setup
 ```
 

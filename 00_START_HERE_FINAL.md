@@ -43,7 +43,7 @@
 
 ```bash
 # 1. Navigate
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd /path/to/WaveMeet
 
 # 2. Start
 make setup
@@ -615,7 +615,7 @@ Your complete WaveMeet messaging application is fully created, verified, and rea
 
 **Start building:**
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd /path/to/WaveMeet
 make setup
 ```
 

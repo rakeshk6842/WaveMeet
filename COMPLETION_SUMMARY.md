@@ -222,7 +222,7 @@ Docker & Docker Compose
 
 ### Step 1: Prepare Environment
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd /path/to/WaveMeet
 cp .env.example .env
 ```
 
@@ -513,7 +513,7 @@ Your **WaveMeet** is now **100% complete** and **production-ready**!
 
 ### Getting Started Right Now:
 ```bash
-cd /Users/rakeshkoripella/Desktop/projects/docker-ai-workspace
+cd /path/to/WaveMeet
 make setup
 # Then open http://localhost:3000
 ```
