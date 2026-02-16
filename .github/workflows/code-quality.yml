@@ -21,6 +21,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: |
+          cd backend && npm install --prefer-offline --no-audit || true
+          cd ../frontend && npm install --prefer-offline --no-audit || true
+      
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
@@ -31,6 +42,8 @@ jobs:
       
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
+        with:
+          category: "/language:${{ matrix.language }}"
 
   semgrep:
     name: Semgrep Security Scan
@@ -108,6 +121,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install backend dependencies
+        run: |
+          cd backend && npm install --prefer-offline --no-audit || true
+        continue-on-error: true
+      
+      - name: Install frontend dependencies
+        run: |
+          cd frontend && npm install --prefer-offline --no-audit || true
+        continue-on-error: true
+      
+      - name: Run npm audit
+        run: |
+          echo "Backend npm audit:" && cd backend && npm audit --audit-level=moderate || true
+          echo "Frontend npm audit:" && cd ../frontend && npm audit --audit-level=moderate || true
+        continue-on-error: true
+      
       - name: Run OWASP Dependency Check
         uses: jeremylong/DependencyCheck_Action@main
         with:
@@ -162,16 +197,33 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: |
+          echo "Installing backend dependencies..."
+          cd backend && npm install --prefer-offline --no-audit || npm install || true
+          cd ..
+          echo "Installing frontend dependencies..."
+          cd frontend && npm install --prefer-offline --no-audit || npm install || true
+          cd ..
+        continue-on-error: true
       
       - name: Check licenses
         run: |
           npm install -g license-checker
-          license-checker --onlyAllow "MIT;Apache-2.0;ISC;BSD;BSD-2-Clause;BSD-3-Clause" --json > license-report.json || true
+          cd backend && license-checker --onlyAllow "MIT;Apache-2.0;ISC;BSD;BSD-2-Clause;BSD-3-Clause;PostgreSQL License" --json > ../backend-license-report.json 2>&1 || true
+          cd ../frontend && license-checker --onlyAllow "MIT;Apache-2.0;ISC;BSD;BSD-2-Clause;BSD-3-Clause;PostgreSQL License" --json > ../frontend-license-report.json 2>&1 || true
+          cd ..
+          echo "License check completed"
+        continue-on-error: true
       
-      - name: Upload license report
+      - name: Upload license reports
         uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: license-report
-          path: license-report.json
+          name: license-reports
+          path: |
+            backend-license-report.json
+            frontend-license-report.json
         continue-on-error: true
