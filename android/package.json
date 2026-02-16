@@ -1,7 +1,7 @@
 {
-  "name": "wavemeet-ios",
+  "name": "wavemeet-android",
   "version": "1.0.0",
-  "description": "WaveMeet iOS mobile application built with React Native",
+  "description": "WaveMeet Android mobile application built with React Native",
   "main": "index.js",
   "scripts": {
     "start": "react-native start",
@@ -9,7 +9,7 @@
     "android": "react-native run-android",
     "test": "jest",
     "lint": "eslint src/",
-    "build": "react-native bundle --platform ios --dev false --entry-file index.js --bundle-output ios/main.jsbundle"
+    "build": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/main.jsbundle"
   },
   "dependencies": {
     "react": "18.2.0",
@@ -26,6 +26,8 @@
     "react-native-vector-icons": "^10.0.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.13",
     "react-native-uuid": "^2.0.0",
+    "react-native-gesture-handler": "^2.13.0",
+    "react-native-reanimated": "^3.3.0",
     "dotenv": "^16.3.1"
   },
   "devDependencies": {
