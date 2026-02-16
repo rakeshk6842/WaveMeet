@@ -428,7 +428,7 @@ Your project is ready when you can:
 ╔════════════════════════════════════════════════════════════════╗
 ║                  ✅ PROJECT VERIFICATION COMPLETE              ║
 ║                                                                ║
-║  WaveMeet - RHEL 10 Development Container               ║
+║  WaveMeet - RHEL 9 Development Container               ║
 ║  Version: 1.0.0                                               ║
 ║  Status: PRODUCTION READY                                     ║
 ║                                                                ║

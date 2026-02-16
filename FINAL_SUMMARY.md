@@ -11,7 +11,7 @@
 Your complete WaveMeet messaging application is now **100% ready** to use!
 
 ### What You Have:
-✅ Complete development environment (RHEL 10 container)  
+✅ Complete development environment (RHEL 9 container)  
 ✅ Full-stack application (React + Node.js)  
 ✅ Real-time messaging with WebSocket  
 ✅ Persistent database (PostgreSQL)  

@@ -2,7 +2,7 @@
 
 ## ✅ PROJECT COMPLETION STATUS: 100%
 
-All components have been successfully created and configured for a production-ready WaveMeet application running in a RHEL 10 development container.
+All components have been successfully created and configured for a production-ready WaveMeet application running in a RHEL 9 development container.
 
 ---
 
@@ -492,7 +492,7 @@ open http://localhost:3000
 Your **WaveMeet** is now **100% complete** and **production-ready**!
 
 ### What You Have:
-- ✅ Complete development environment (RHEL 10 container)
+- ✅ Complete development environment (RHEL 9 container)
 - ✅ Full-stack application (React + Node.js)
 - ✅ Real-time messaging with WebSocket
 - ✅ Persistent database (PostgreSQL)

@@ -2,7 +2,7 @@
 
 ## ✅ Your Project is COMPLETE & VERIFIED
 
-Your WaveMeet with RHEL 10 dev container has been fully created and tested.
+Your WaveMeet with RHEL 9 dev container has been fully created and tested.
 
 ---
 

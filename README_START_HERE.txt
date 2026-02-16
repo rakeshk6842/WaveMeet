@@ -2,7 +2,7 @@
 
 ## 🎉 Your Project is Complete!
 
-Your **WaveMeet messaging application** with RHEL 10 dev container has been fully created and verified.
+Your **WaveMeet messaging application** with RHEL 9 dev container has been fully created and verified.
 
 ---
 

@@ -9,7 +9,7 @@
 
 ## 📋 Quick Overview
 
-This is a **complete WaveMeet messaging application** that runs in a **RHEL 10 development container** with:
+This is a **complete WaveMeet messaging application** that runs in a **RHEL 9 development container** with:
 
 - ✅ **Frontend**: React 18 + Vite + Tailwind CSS
 - ✅ **Backend**: Node.js + Express.js + Socket.io

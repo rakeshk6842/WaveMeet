@@ -385,5 +385,5 @@ Choose your starting point above and begin your journey. Most people start with 
 ---
 
 **Last Updated**: February 2026
-**Project**: WaveMeet - RHEL 10 Dev Container
+**Project**: WaveMeet - RHEL 9 Dev Container
 **Status**: Production Ready ✅

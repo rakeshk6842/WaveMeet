@@ -585,7 +585,7 @@ cat README.md
 ║                                                              ║
 ║            ✅ PROJECT FULLY COMPLETE & VERIFIED              ║
 ║                                                              ║
-║        WaveMeet - RHEL 10 Development Container       ║
+║        WaveMeet - RHEL 9 Development Container       ║
 ║                     Version 1.0.0                           ║
 ║                                                              ║
 ║  📊 46 Files • 3000+ Lines • 15 Docs • Ready to Run          ║

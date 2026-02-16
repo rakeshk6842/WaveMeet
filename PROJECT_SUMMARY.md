@@ -389,7 +389,7 @@ The project structure makes it easy to:
 ## Summary
 
 You now have a **production-ready WaveMeet messaging application** with:
-- ✅ Complete development environment (RHEL 10 container)
+- ✅ Complete development environment (RHEL 9 container)
 - ✅ Full-stack application (React + Node.js)
 - ✅ Real-time messaging
 - ✅ Database backend

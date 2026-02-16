@@ -2,7 +2,7 @@
 ║                                                                                ║
 ║                    ✅ VERIFICATION COMPLETE - READY TO USE                     ║
 ║                                                                                ║
-║                 WaveMeet with RHEL 10 Development Container             ║
+║                 WaveMeet with RHEL 9 Development Container             ║
 ║                                                                                ║
 ║                              Version 1.0.0                                     ║
 ║                           February 15, 2026                                    ║
