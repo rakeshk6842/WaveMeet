@@ -25,7 +25,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
       
       - name: Install dependencies
         run: |
@@ -125,7 +124,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
       
       - name: Install backend dependencies
         run: |
@@ -144,18 +142,15 @@ jobs:
         continue-on-error: true
       
       - name: Run OWASP Dependency Check
-        uses: jeremylong/DependencyCheck_Action@main
+        uses: dependency-check/Dependency-Check_Action@main
         with:
           project: 'WaveMeet'
           path: '.'
           format: 'JSON'
-          args: >
-            --enableExperimental
-            --enable-retired
         continue-on-error: true
       
       - name: Upload Dependency Check report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: dependency-check-report
@@ -197,7 +192,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
       
       - name: Install dependencies
         run: |
@@ -219,7 +213,7 @@ jobs:
         continue-on-error: true
       
       - name: Upload license reports
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: license-reports
