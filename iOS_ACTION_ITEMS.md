@@ -70,7 +70,9 @@ This prepares the iOS environment:
 
 ```bash
 # Navigate to project
+
 cd WaveMeet
+
 
 # Make script executable (first time only)
 chmod +x deploy-ios.sh
